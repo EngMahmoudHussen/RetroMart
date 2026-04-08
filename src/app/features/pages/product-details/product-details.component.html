@@ -1,0 +1,49 @@
+@if (apiError) {
+  <h1 class="text-4xl font-bold">Filed to load product</h1>
+} @else {
+  @if (productDetails) {
+    <div class="flex justify-between my-10 items-center">
+      <div class="w-[35%]">
+        <owl-carousel-o [options]="customOptions">
+          @for (srs of productDetails.images; track $index) {
+            <ng-template carouselSlide [id]="srs">
+              <img [src]="srs" [alt]="srs" [title]="srs" />
+            </ng-template>
+          }
+        </owl-carousel-o>
+      </div>
+      <div class="w-[60%]">
+        <h1 class="text-4xl mb-4">{{ productDetails.title }}</h1>
+        <p class="mb-8">{{ productDetails.description }}</p>
+        <span class="text-main">{{ productDetails.category.name }}</span>
+
+        <div class="flex justify-between mb-3">
+          <p>{{ productDetails.price }}</p>
+          <p>
+            <i class="fa fa-star text-yellow"></i
+            >{{ productDetails.ratingsAverage }}
+          </p>
+        </div>
+        <button
+          (click)="addToCart(productDetails._id)"
+          class="bg-main text-white rounded-md p-2 w-[90%] mx-auto block group-hover:opacity-100 transition-all duration-500 translate-y-[100%] group-hover:translate-y-[0]"
+        >
+          @if (isLoading) {
+            <i class="fa fa-spin fa-spinner"></i>
+          } @else {
+            Add To Cart
+          }
+        </button>
+      </div>
+    </div>
+  }
+  <h2 #related class="text-4xl font-bold mb-10">Related Product</h2>
+
+  @defer (on viewport(related)) {
+    <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-7">
+      @for (product of recentProduct; track $index) {
+        <app-product-item [product]="product"></app-product-item>
+      }
+    </div>
+  }
+}

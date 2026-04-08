@@ -1,0 +1,8 @@
+<input
+  class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-main appearance-none focus:outline-none focus:ring-0 focus:border-main peer"
+  [placeholder]="placeholder"
+  [type]="type"
+  [value]="value"
+  (input)="onChange($any($event.target).value)"
+  (blur)="onTouched()"
+/>

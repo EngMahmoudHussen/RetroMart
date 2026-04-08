@@ -1,0 +1,145 @@
+<!-- {{ registerForm.get("name")?.errors | json }} -->
+<!-- apiErorr -->
+
+<form
+  [formGroup]="registerForm"
+  (ngSubmit)="register()"
+  class="max-w-md mx-auto mt-10"
+>
+  @if (apiErorr) {
+    <div
+      class="flex p-4 mb-4 mt-3 text-sm text-red-500 text-fg-warning rounded-base bg-red-50"
+      role="alert"
+    >
+      {{ apiErorr }}
+    </div>
+  }
+  <div class="relative z-0 w-full mb-5 group">
+    @let nameControl = registerForm.get("name");
+    <input
+      formControlName="name"
+      type="text"
+      name="floating_name"
+      id="floating_name"
+      class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-main appearance-none focus:outline-none focus:ring-0 focus:border-main peer"
+      placeholder=" "
+      required
+    />
+    <label
+      for="floating_email"
+      class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+      >Name</label
+    >
+
+    <app-error-message [nameControl]="nameControl"></app-error-message>
+  </div>
+
+  <div class="relative z-0 w-full mb-5 group">
+    @let emailControl = registerForm.get("email");
+
+    <input
+      formControlName="email"
+      type="email"
+      name="floating_email"
+      id="floating_email"
+      class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-main appearance-none focus:outline-none focus:ring-0 focus:border-main peer"
+      placeholder=" "
+      required
+    />
+    <label
+      for="floating_email"
+      class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+      >Email</label
+    >
+    <app-error-message [nameControl]="emailControl"></app-error-message>
+  </div>
+  <div class="relative z-0 w-full mb-5 group">
+    @let passwordControl = registerForm.get("password");
+
+    <input
+      formControlName="password"
+      type="password"
+      name="floating_password"
+      id="floating_password"
+      class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-main appearance-none focus:outline-none focus:ring-0 focus:border-main peer"
+      placeholder=" "
+      required
+    />
+    <label
+      for="floating_password"
+      class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+      >Password</label
+    >
+    <app-error-message [nameControl]="passwordControl"></app-error-message>
+  </div>
+  <div class="relative z-0 w-full mb-5 group">
+    @let rePasswordControl = registerForm.get("rePassword");
+
+    <input
+      formControlName="rePassword"
+      type="password"
+      name="floating_rePassword"
+      id="floating_rePassword"
+      class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-main appearance-none focus:outline-none focus:ring-0 focus:border-main peer"
+      placeholder=" "
+      required
+    />
+    <label
+      for="floating_rePassword"
+      class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+      >Confarm Password</label
+    >
+    @if (
+      rePasswordControl?.touched &&
+      (rePasswordControl?.errors || registerForm.getError("misMatch"))
+    ) {
+      <div
+        class="flex p-4 mb-4 mt-3 text-sm text-red-500 text-fg-warning rounded-base bg-red-50"
+        role="alert"
+      >
+        <div>
+          <ul class="mt-2 list-disc list-outside space-y-1 ps-2.5">
+            @if (rePasswordControl?.getError("required")) {
+              <li>rePassword is requaired</li>
+            } @else if (rePasswordControl?.getError("pattern")) {
+              <li>In valid pattern</li>
+            } @else if (registerForm.getError("misMatch")) {
+              <li>password And RePassword should MisMatch</li>
+            }
+          </ul>
+        </div>
+      </div>
+    }
+  </div>
+  <div class="relative z-0 w-full mb-5 group">
+    @let phone = registerForm.get("phone");
+    <input
+      formControlName="phone"
+      type="tel"
+      name="floating_phone"
+      id="floating_phone"
+      class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-main appearance-none focus:outline-none focus:ring-0 focus:border-main peer"
+      placeholder=" "
+      required
+    />
+    <label
+      for="floating_phone"
+      class="absolute text-sm text-body duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-main peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto"
+      >Phone</label
+    >
+        <app-error-message [nameControl]="phone"></app-error-message>
+
+
+  </div>
+  <button
+    [disabled]="isCallingAPI"
+    type="submit"
+    class="text-white bg-main box-border border border-transparent hover:bg-green-700 focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-md text-sm px-4 py-2.5 focus:outline-none"
+  >
+    @if (isCallingAPI) {
+      <i class="fa fa-spin fa-spinner"></i>
+    } @else {
+      Submeit
+    }
+  </button>
+</form>

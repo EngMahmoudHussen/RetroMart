@@ -1,0 +1,1 @@
+var e={prodaction:!1,baseURL:"https://ecommerce.routemisr.com/api/v1"};export{e as a};

@@ -38,7 +38,10 @@ export class OrderService {
     shippingAddress: { details: string; phone: string; city: string },
   ): Observable<any> {
     return this._httpClint.post(
-      `${this.baseURL}/orders/checkout-session/${id}?url=http://localhost:4200`,
+      
+      // `${this.baseURL}/orders/checkout-session/${id}?url=http://localhost:4200`,
+
+      `${this.baseURL}/orders/checkout-session/${id}?url=https://engmahmoudhussen.github.io/RetroMart/allorders`,
       { shippingAddress },
       {
         headers: {
@@ -46,6 +49,5 @@ export class OrderService {
         },
       },
     );
-    
   }
 }

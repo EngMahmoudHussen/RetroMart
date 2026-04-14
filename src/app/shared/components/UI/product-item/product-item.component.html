@@ -7,15 +7,4 @@
     <p><i class="fa fa-star text-yellow"></i>{{ product.ratingsAverage }}</p>
   </div>
 </a>
-<div class="products mb-10 group">
-  <button
-    (click)="handleAddToCart(product._id)"
-    class="bg-main text-white rounded-md p-2 w-[90%] mx-auto block opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-[100%] group-hover:translate-y-[0]"
-  >
-    @if (isLoading) {
-      <i class="fa fa-spin fa-spinner"></i>
-    } @else {
-      Add To Cart
-    }
-  </button>
-</div>
+

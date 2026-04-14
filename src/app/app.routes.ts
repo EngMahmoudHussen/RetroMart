@@ -6,6 +6,11 @@ import { loggedUserGuard } from './core/guards/auth/logged-user.guard';
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
     path: 'auth',
     component: AuthLeyoutComponent,
 

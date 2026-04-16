@@ -38,14 +38,13 @@ export class OrderService {
     shippingAddress: { details: string; phone: string; city: string },
   ): Observable<any> {
     return this._httpClint.post(
-      `${this.baseURL}/orders/checkout-session/${id}?url=${window.location.origin}/RetroMart`,
-
+      `${this.baseURL}/orders/checkout-session/${id}?url=https://engmahmoudhussen.github.io/RetroMart`,
+      { shippingAddress },
 
       // `${this.baseURL}/orders/checkout-session/${id}?url=http://localhost:4200`,
       // شيل كلمة allorders من هنا خالص
       // `${this.baseURL}/orders/checkout-session/${id}?url=https://engmahmoudhussen.github.io/RetroMart`,
-      
-      { shippingAddress },
+
       {
         headers: {
           Token: JSON.parse(this.token),

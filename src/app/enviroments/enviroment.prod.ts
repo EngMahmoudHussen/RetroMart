@@ -1,4 +1,4 @@
 export const enviroment = {
-  prodaction: false,
+  production: false,
   baseURL: 'https://ecommerce.routemisr.com/api/v1',
 };

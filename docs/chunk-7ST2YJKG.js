@@ -1,1 +1,0 @@
-import{Bb as p,Xa as o,pb as n,qb as s}from"./chunk-STXIVTQ3.js";import"./chunk-4CLCTAJ7.js";var c=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=o({type:t,selectors:[["app-products"]],decls:2,vars:0,template:function(e,a){e&1&&(n(0,"p"),p(1,"products works!"),s())},encapsulation:2})};export{c as ProductsComponent};

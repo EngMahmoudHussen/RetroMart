@@ -1,13 +1,11 @@
-<nav class="bg-white dark:bg-gray-900 border-b border-gray-200">
+<nav class="bg-white dark:bg-gray-900 border-b border-gray-200 z-50 relative">
   <div
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 relative"
   >
-    <!-- Logo + Brand -->
     <div class="flex items-center gap-x-5">
       <a
-        href="https://flowbite.com/"
+        routerLink="/home"
         class="flex items-center space-x-3 rtl:space-x-reverse"
-        ذ
       >
         <span
           class="self-center text-xl text-heading font-semibold whitespace-nowrap"
@@ -15,9 +13,9 @@
         >
       </a>
 
-      <!-- Menu -->
       <div
-        class="hidden w-full md:block md:w-auto absolute top-16 left-0 md:static transition-all duration-300 z-50 bg-white shadow-md md:shadow-none"
+        [class.hidden]="!isMenuOpen"
+        class="w-full md:block md:w-auto absolute top-16 left-0 md:static transition-all duration-300 z-[999] bg-white shadow-md md:shadow-none"
         id="navbar-default"
       >
         @if (this.isLoggedIn) {
@@ -69,7 +67,6 @@
       </div>
     </div>
 
-    <!-- Social + Auth -->
     <div class="flex flex-wrap items-center gap-4">
       <ul class="flex gap-3">
         <li><i class="fa-brands fa-facebook"></i></li>
@@ -93,13 +90,10 @@
       </ul>
     </div>
 
-    <!-- Hamburger Button -->
     <button
-      data-collapse-toggle="navbar-default"
+      (click)="isMenuOpen = !isMenuOpen"
       type="button"
-      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-md md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
-      aria-controls="navbar-default"
-      aria-expanded="false"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-md md:hidden hover:bg-gray-100 focus:outline-none"
     >
       <span class="sr-only">Open main menu</span>
       <svg

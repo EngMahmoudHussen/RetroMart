@@ -11,6 +11,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class NavbarComponent implements OnInit {
   _authService = inject(AuthService);
   isLoggedIn: any;
+  isMenuOpen = false;
 
   constructor() {}
   ngOnInit(): void {

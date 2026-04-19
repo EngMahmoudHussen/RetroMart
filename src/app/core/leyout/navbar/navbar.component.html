@@ -17,12 +17,12 @@
 
       <!-- Menu -->
       <div
-        class="hidden w-full md:block md:w-auto absolute top-16 left-0 md:static transition-all duration-300"
+        class="hidden w-full md:block md:w-auto absolute top-16 left-0 md:static transition-all duration-300 z-50 bg-white shadow-md md:shadow-none"
         id="navbar-default"
       >
         @if (this.isLoggedIn) {
           <ul
-            class="font-medium flex flex-col p-4 mt-4 border border-gray-300 rounded-md bg-slate-100 md:bg-transparent md:flex-row md:space-x-8 md:mt-0 md:border-0"
+            class="font-medium flex flex-col p-4 mt-0 border border-gray-300 rounded-md bg-slate-100 md:bg-transparent md:flex-row md:space-x-8 md:mt-0 md:border-0"
           >
             <li>
               <a
